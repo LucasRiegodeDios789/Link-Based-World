@@ -1,0 +1,55 @@
+{
+  "start": "entrance",
+  "player": {
+    "location": "entrance",
+    "inventory": [],
+    "flags": {}
+  },
+  "locations": {
+    "entrance": {
+      "title": "Mine Entrance",
+      "text": "You stand at the yawning entrance of an old mine. The path descends into darkness.",
+      "choices": [
+        { "text": "Enter the mine", "target": "shaft1" }
+      ]
+    },
+    "shaft1": {
+      "title": "Main Shaft",
+      "text": "Timber beams creak above you. A side tunnel leads to a dusty equipment shed.",
+      "choices": [
+        { "text": "Go to the shed", "target": "shed" },
+        { "text": "Deeper into the mine", "target": "blockedTunnel", "locked": true, "requires": "blasting cap" }
+      ]
+    },
+    "shed": {
+      "title": "Equipment Shed",
+      "text": "Old gear litters the floor. You spot something shiny under a broken crate.",
+      "item": "blasting cap",
+      "choices": [
+        { "text": "Return to the shaft", "target": "shaft1" }
+      ]
+    },
+    "blockedTunnel": {
+      "title": "Blocked Tunnel",
+      "text": "The path is blocked by rubble. You rig the blasting cap...",
+      "choices": [
+        { "text": "Enter the new passage", "target": "radioRoom" }
+      ]
+    },
+    "radioRoom": {
+      "title": "Radio Control Room",
+      "text": "You find an old radio station, still faintly powered.",
+      "special": "radio",
+      "choices": [
+        { "text": "Go back", "target": "blockedTunnel" },
+        { "text": "Take final path", "target": "exit" }
+      ]
+    },
+    "exit": {
+      "title": "Exit Tunnel",
+      "text": "You crawl through a tight shaft and see daylight ahead.",
+      "ending": "win",
+      "choices": []
+    }
+  }
+}
